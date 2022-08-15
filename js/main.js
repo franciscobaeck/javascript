@@ -15,6 +15,7 @@ function calcularPrecioFinal(importeSinInteres, cantCuotas) {
   }
 
   return parseFloat(precioFinal).toFixed(2);
+
 }
 
 const form = document.getElementsByClassName('needs-validation')[0]
@@ -43,7 +44,7 @@ form.addEventListener('submit', event => {
     }
 
     carrito.push(compra)
-    
+
     alert(`Según el método de pago elegido, el importe final es de $${precioFinal} a pagar en ${cuotas} pago/s. El interés es de ${interes}%. El valor de la cuota es $${(precioFinal/cuotas).toFixed(2)}`)
 
   }
