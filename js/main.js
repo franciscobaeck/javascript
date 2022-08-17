@@ -1,5 +1,6 @@
 let interes = 0;
 const carrito = [];
+const productosDelCarrito = []
 
 function calcularPrecioFinal(importeSinInteres, cantCuotas) {
   let precioFinal;
@@ -44,9 +45,23 @@ form.addEventListener('submit', event => {
     }
 
     carrito.push(compra)
+    guardarProductoLS(compra)
 
     alert(`Según el método de pago elegido, el importe final es de $${precioFinal} a pagar en ${cuotas} pago/s. El interés es de ${interes}%. El valor de la cuota es $${(precioFinal/cuotas).toFixed(2)}`)
 
   }
 }, false)
+
+function guardarProductoLS(producto) {
+  localStorage.setItem("producto", producto)
+}
+
+function cargarProductoLS() {
+  return JSON.parse(localStorage.getItem("producto")) || []
+}
+
+function renderProductos() {
+  const producto = cargarProductoLS();
+}
+
 console.log(carrito)
